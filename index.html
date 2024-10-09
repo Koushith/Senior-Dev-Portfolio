@@ -1,300 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Koushith's Pixel Purr-fection: Where Code Meets Design</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-13NJQHVC4T"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-13NJQHVC4T");
+    </script>
+
+    <!-- Favicon using emoji -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>"
+    />
+
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="Koushith's Pixel Purr-fection" />
+    <meta
+      property="og:description"
+      content="Where Code Meets Design (and Cats). Explore the digital playground of Koushith, a software engineer with a knack for product design."
+    />
+    <meta
+      property="og:image"
+      content="https://pbs.twimg.com/profile_images/1733931010977640448/KTlA02mC_400x400.jpg"
+    />
+    <meta property="og:url" content="https://meow97.netlify.app/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Koushith's Pixel Purr-fection" />
+    <meta
+      name="twitter:description"
+      content="Where Code Meets Design (and Cats). Explore the digital playground of Koushith, a software engineer with a knack for product design."
+    />
+    <meta
+      name="twitter:image"
+      content="https://pbs.twimg.com/profile_images/1733931010977640448/KTlA02mC_400x400.jpg"
+    />
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+      body {
+        font-family: "Press Start 2P", cursive;
+        background-color: #1a1a2e;
+        color: #e0e0e0;
+        line-height: 1.8;
+        padding: 40px 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 14px;
+      }
+      h1,
+      h2 {
+        color: #4ecca3;
+        margin-bottom: 30px;
+      }
+      h3 {
+        color: #e0e0e0;
+        margin-top: 25px;
+        margin-bottom: 20px;
+      }
+      .container {
+        background-color: #16213e;
+        border: 2px solid #4ecca3;
+        padding: 40px;
+        margin-bottom: 50px;
+        box-shadow: 5px 5px 0px #4ecca3;
+      }
+      p {
+        margin-bottom: 25px;
+      }
+      ul {
+        padding-left: 25px;
+      }
+      li {
+        margin-bottom: 20px;
+      }
+      .cat-image {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        display: block;
+        margin: 40px auto;
+        border: 2px solid #4ecca3;
+      }
+      .blink {
+        animation: blink 1s step-end infinite;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+      button {
+        background-color: #4ecca3;
+        color: #1a1a2e;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-family: "Press Start 2P", cursive;
+        font-size: 14px;
+        box-shadow: 3px 3px 0px #e0e0e0;
+      }
+      button:hover {
+        background-color: #45b293;
+      }
+      a {
+        color: #4ecca3;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .close {
+        color: #e0e0e0;
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      .close:hover,
+      .close:focus {
+        color: #4ecca3;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+      .modal-content {
+        background-color: #16213e;
+        margin: 15% auto;
+        padding: 20px;
+        border: 2px solid #4ecca3;
+        width: 90%;
+        max-width: 600px;
+        position: relative;
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+      .company-name {
+        color: #ff6b6b;
+        font-weight: bold;
+      }
+      .testimonial {
+        border-left: 3px solid #ff6b6b;
+        padding-left: 15px;
+        margin-bottom: 20px;
+        font-style: italic;
+      }
+      .testimonial-author {
+        color: #ff6b6b;
+        font-style: normal;
+        margin-top: 5px;
+        text-align: right;
+      }
+      .cat-carousel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      #catImage {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        margin: 20px auto;
+        display: block;
+      }
+      .retro-button {
+        background-color: #4ecca3;
+        color: #1a1a2e;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-family: "Press Start 2P", cursive;
+        font-size: 14px;
+        margin: 5px;
+      }
+      @media (max-width: 600px) {
         body {
-            font-family: 'Press Start 2P', cursive;
-            background-color: #1a1a2e;
-            color: #e0e0e0;
-            line-height: 1.8;
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 14px;
-        }
-        h1, h2 {
-            color: #4ecca3;
-            margin-bottom: 30px;
-        }
-        h3 {
-            color: #e0e0e0;
-            margin-top: 25px;
-            margin-bottom: 20px;
+          font-size: 12px;
+          line-height: 1.6;
         }
         .container {
-            background-color: #16213e;
-            border: 2px solid #4ecca3;
-            padding: 40px;
-            margin-bottom: 50px;
-            box-shadow: 5px 5px 0px #4ecca3;
-        }
-        p {
-            margin-bottom: 25px;
-        }
-        ul {
-            padding-left: 25px;
-        }
-        li {
-            margin-bottom: 20px;
-        }
-        .cat-image {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            display: block;
-            margin: 40px auto;
-            border: 2px solid #4ecca3;
-        }
-        .blink {
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-        button {
-            background-color: #4ecca3;
-            color: #1a1a2e;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 14px;
-            box-shadow: 3px 3px 0px #e0e0e0;
-        }
-        button:hover {
-            background-color: #45b293;
-        }
-        a {
-            color: #4ecca3;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .close {
-            color: #e0e0e0;
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: #4ecca3;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
+          padding: 20px;
         }
         .modal-content {
-            background-color: #16213e;
-            margin: 15% auto;
-            padding: 20px;
-            border: 2px solid #4ecca3;
-            width: 90%; 
-            max-width: 600px;
-            position: relative;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-        .company-name {
-            color: #ff6b6b;  
-            font-weight: bold;
-        }
-        .testimonial {
-            border-left: 3px solid #ff6b6b;
-            padding-left: 15px;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-        .testimonial-author {
-            color: #ff6b6b; 
-            font-style: normal;
-            margin-top: 5px;
-            text-align: right;
-        }
-        .cat-carousel {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap; 
+          width: 95%;
+          padding: 15px;
+          margin: 10% auto;
+          max-height: 90vh;
         }
         #catImage {
-            width: 100%;
-            max-width: 300px;
-            height: auto; 
-            margin: 20px auto;
-            display: block;
+          max-width: 100%;
+          max-height: 200px;
+          object-fit: contain;
         }
-        .retro-button {
-            background-color: #4ecca3;
-            color: #1a1a2e;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 14px;
-            margin: 5px;
+        .cat-carousel {
+          justify-content: center;
         }
-        @media (max-width: 600px) {
-            body {
-                font-size: 12px;
-                line-height: 1.6;
-            }
-            .container {
-                padding: 20px;
-            }
-            .modal-content {
-                width: 95%;
-                padding: 15px;
-                margin: 10% auto;
-                max-height: 90vh;
-            }
-            #catImage {
-                max-width: 100%;
-                max-height: 200px; 
-                object-fit: contain; 
-            }
-            .cat-carousel {
-                justify-content: center;
-            }
-            .close {
-                top: 10px;
-                right: 15px;
-            }
+        .close {
+          top: 10px;
+          right: 15px;
         }
-        #contact-button {
-            display: block;
-            margin: 20px auto;
-            padding: 15px 30px;
-            font-size: 18px;
+      }
+      #contact-button {
+        display: block;
+        margin: 20px auto;
+        padding: 15px 30px;
+        font-size: 18px;
+      }
+      #contactForm {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      #contactForm > div {
+        margin-bottom: 20px;
+      }
+      #contactForm label {
+        color: #4ecca3;
+        margin-bottom: 5px;
+        display: block;
+      }
+      #contactForm input,
+      #contactForm textarea {
+        width: 100%;
+        padding: 10px;
+        background-color: #1a1a2e;
+        border: 2px solid #4ecca3;
+        color: #e0e0e0;
+        font-family: "Press Start 2P", cursive;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+      #contactForm textarea {
+        height: 100px;
+        resize: vertical;
+      }
+      #contactForm button {
+        align-self: flex-start;
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #4ecca3;
+        color: #1a1a2e;
+        border: none;
+        cursor: pointer;
+        font-family: "Press Start 2P", cursive;
+        font-size: 14px;
+      }
+      #formStatus {
+        margin-top: 20px;
+        text-align: center;
+        font-weight: bold;
+      }
+      @media (max-width: 600px) {
+        .modal-content {
+          width: 95%;
+          padding: 15px;
+          margin: 10% auto;
         }
-        #contactForm {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        #contactForm > div {
-            margin-bottom: 20px;
-        }
-        #contactForm label {
-            color: #4ecca3;
-            margin-bottom: 5px;
-            display: block;
-        }
-        #contactForm input, #contactForm textarea {
-            width: 100%;
-            padding: 10px;
-            background-color: #1a1a2e;
-            border: 2px solid #4ecca3;
-            color: #e0e0e0;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 14px;
-            box-sizing: border-box;
-        }
+        #contactForm input,
         #contactForm textarea {
-            height: 100px;
-            resize: vertical;
+          font-size: 12px;
         }
-        #contactForm button {
-            align-self: flex-start;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #4ecca3;
-            color: #1a1a2e;
-            border: none;
-            cursor: pointer;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 14px;
-        }
-        #formStatus {
-            margin-top: 20px;
-            text-align: center;
-            font-weight: bold;
-        }
-        @media (max-width: 600px) {
-            .modal-content {
-                width: 95%;
-                padding: 15px;
-                margin: 10% auto;
-            }
-            #contactForm input, #contactForm textarea {
-                font-size: 12px;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header class="container">
-        <h1>KOUSHITH'S PIXEL PURR-FECTION</h1>
-        <p>Where Code Meets Design (and Cats) <span class="blink">_</span></p>
+      <h1>KOUSHITH'S PIXEL PURR-FECTION</h1>
+      <p>Where Code Meets Design (and Cats) <span class="blink">_</span></p>
     </header>
 
     <main>
-        <section class="container">
-            <h2>WHO AM I?</h2>
-            <img src="https://pbs.twimg.com/profile_images/1733931010977640448/KTlA02mC_400x400.jpg" alt="Koushith's profile picture" class="cat-image" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%;">
-            <p>I'm Koushith, a software engineer with a knack for product design. I craft pixel-perfect UIs by day and wrangle unruly code by night (while my cat judges me silently).</p>
-        </section>
+      <section class="container">
+        <h2>WHO AM I?</h2>
+        <img
+          src="https://pbs.twimg.com/profile_images/1733931010977640448/KTlA02mC_400x400.jpg"
+          alt="Koushith's profile picture"
+          class="cat-image"
+          style="
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+          "
+        />
+        <p>
+          I'm Koushith, a software engineer with a knack for product design. I
+          craft pixel-perfect UIs by day and wrangle unruly code by night (while
+          my cat judges me silently).
+        </p>
+      </section>
 
-        <section class="container">
-            <h2>MY SUPERPOWERS</h2>
-            <ul>
-                <li>Transforming wireframes into purr-fect pixels</li>
-                <li>Coding faster than my cat can knock things off my desk</li>
-                <li>Balancing form and function like a cat on a fence</li>
-                <li>Catching bugs before they can multiply (unlike my cat's toys)</li>
-            </ul>
-        </section>
+      <section class="container">
+        <h2>MY SUPERPOWERS</h2>
+        <ul>
+          <li>Transforming wireframes into purr-fect pixels</li>
+          <li>Coding faster than my cat can knock things off my desk</li>
+          <li>Balancing form and function like a cat on a fence</li>
+          <li>Catching bugs before they can multiply (unlike my cat's toys)</li>
+        </ul>
+      </section>
 
-        <section class="container">
-            <h2>SECRET FEATURE</h2>
-            <p>Warning: Clicking the button below may cause uncontrollable coding urges!</p>
-            <button id="secret-button">DO NOT CLICK</button>
-        </section>
+      <section class="container">
+        <h2>SECRET FEATURE</h2>
+        <p>
+          Warning: Clicking the button below may cause uncontrollable coding
+          urges!
+        </p>
+        <button id="secret-button">DO NOT CLICK</button>
+      </section>
 
-        <section class="container">
-            <h2>WORK ADVENTURES</h2>
-            
-            <h3><span class="company-name">Reclaim Protocol</span> (May 2023 - Present)</h3>
-            <p>Chief Cat Herder & Code Whisperer</p>
-            <ul>
-                <li>Mastering the art of client solutioning (a.k.a. convincing humans that my cat's ideas are actually mine)</li>
-                <li>Crafting internal tools and devtool to optimize workflows and boost efficiency (because simplifying other developers' tasks is my secret superpower)</li>
-                <li>Fullstack juggling act - balancing frontend purr-fection with backend whisker-twisting logic</li>
-            </ul>
+      <section class="container">
+        <h2>WORK ADVENTURES</h2>
 
-            <h3><span class="company-name">ConsensoLabs</span> (June 2020 - March 2023)</h3>
-            <p>Pixel Pusher & Frontend Feline</p>
-            <ul>
-                <li>Designed interfaces so sleek, even my cat couldn't resist pawing at the screen</li>
-                <li>Wrangled frontend code into submission, much like trying to bathe an uncooperative cat</li>
-            </ul>
+        <h3>
+          <span class="company-name">Reclaim Protocol</span> (May 2023 -
+          Present)
+        </h3>
+        <p>Chief Cat Herder & Code Whisperer</p>
+        <ul>
+          <li>
+            Mastering the art of client solutioning (a.k.a. convincing humans
+            that my cat's ideas are actually mine)
+          </li>
+          <li>
+            Crafting internal tools and devtool to optimize workflows and boost
+            efficiency (because simplifying other developers' tasks is my secret
+            superpower)
+          </li>
+          <li>
+            Fullstack juggling act - balancing frontend purr-fection with
+            backend whisker-twisting logic
+          </li>
+        </ul>
 
-            <h3><span class="company-name">Infosys LTD</span> (July 2019 - May 2020)</h3>
-            <p>Professional Mouse Clicker & Keyboard Warmer</p>
-            <ul>
-                <li>Performed mysterious "tech support things" - possibly involving turning things off and on again</li>
-                <li>Mastered the art of looking busy while waiting for tickets to solve themselves</li>
-                <li>Achieved enlightenment through endless cycles of "Have you tried restarting your computer?"</li>
-            </ul>
-        </section>
+        <h3>
+          <span class="company-name">ConsensoLabs</span> (June 2020 - March
+          2023)
+        </h3>
+        <p>Pixel Pusher & Frontend Feline</p>
+        <ul>
+          <li>
+            Designed interfaces so sleek, even my cat couldn't resist pawing at
+            the screen
+          </li>
+          <li>
+            Wrangled frontend code into submission, much like trying to bathe an
+            uncooperative cat
+          </li>
+        </ul>
 
-        <!-- <section class="container">
+        <h3>
+          <span class="company-name">Infosys LTD</span> (July 2019 - May 2020)
+        </h3>
+        <p>Professional Mouse Clicker & Keyboard Warmer</p>
+        <ul>
+          <li>
+            Performed mysterious "tech support things" - possibly involving
+            turning things off and on again
+          </li>
+          <li>
+            Mastered the art of looking busy while waiting for tickets to solve
+            themselves
+          </li>
+          <li>
+            Achieved enlightenment through endless cycles of "Have you tried
+            restarting your computer?"
+          </li>
+        </ul>
+      </section>
+
+      <!-- <section class="container">
             <h2>PROJECT SHOWCASE</h2>
             <h3>Meow-sic Player</h3>
             <p>A sleek music player app with a UI so intuitive, even my cat can DJ.</p>
@@ -302,318 +404,423 @@
             <p>A data visualization tool that makes complex info as clear as a cat's meow.</p>
         </section> -->
 
-     
+      <section class="container">
+        <h2>TESTIMONIALS</h2>
+        <div class="testimonial">
+          <p>"Koushith's code is as clean as I keep my fur."</p>
+          <p class="testimonial-author">- My Cat</p>
+        </div>
+        <div class="testimonial">
+          <p>
+            "He designs interfaces so smooth, you'd think they were covered in
+            catnip."
+          </p>
+          <p class="testimonial-author">- Happy Client</p>
+        </div>
+        <div class="testimonial">
+          <p>
+            "I've seen him debug code faster than a cat chasing a laser pointer.
+            It's both impressive and slightly concerning."
+          </p>
+          <p class="testimonial-author">- Former Co-worker</p>
+        </div>
+        <div class="testimonial">
+          <p>
+            "His commit messages are like haikus - brief, beautiful, and often
+            about cats."
+          </p>
+          <p class="testimonial-author">- GitHub Admirer</p>
+        </div>
+        <div class="testimonial">
+          <p>
+            "Koushith once fixed a critical bug with one hand while eating a
+            vada pav with the other. True story."
+          </p>
+          <p class="testimonial-author">- Amazed Project Manager</p>
+        </div>
+      </section>
 
-        <section class="container">
-            <h2>TESTIMONIALS</h2>
-            <div class="testimonial">
-                <p>"Koushith's code is as clean as I keep my fur."</p>
-                <p class="testimonial-author">- My Cat</p>
-            </div>
-            <div class="testimonial">
-                <p>"He designs interfaces so smooth, you'd think they were covered in catnip."</p>
-                <p class="testimonial-author">- Happy Client</p>
-            </div>
-            <div class="testimonial">
-                <p>"I've seen him debug code faster than a cat chasing a laser pointer. It's both impressive and slightly concerning."</p>
-                <p class="testimonial-author">- Former Co-worker</p>
-            </div>
-            <div class="testimonial">
-                <p>"His commit messages are like haikus - brief, beautiful, and often about cats."</p>
-                <p class="testimonial-author">- GitHub Admirer</p>
-            </div>
-            <div class="testimonial">
-                <p>"Koushith once fixed a critical bug with one hand while eating a vada pav with the other. True story."</p>
-                <p class="testimonial-author">- Amazed Project Manager</p>
-            </div>
-        </section>
+      <section class="container">
+        <h2>CURRENT STATUS</h2>
+        <p>🚀 Not seeking full-time roles, but...</p>
+        <ul>
+          <li>Open for rapid prototyping adventures</li>
+          <li>Ready to ship MVPs faster than you can say "chai break"</li>
+          <li>Will consider cool projects that make me go "Waah!" 😮</li>
+        </ul>
+        <p>
+          Translation: If your project is so exciting it could power a small
+          city, I might just say yes. No promises, though my time is as limited
+          as the last samosa at a party.
+        </p>
 
+        <h3>Tech Flexibility</h3>
+        <ul>
+          <li>
+            Backend or Frontend: I'm a tech chameleon, adapting to any stack
+          </li>
+        </ul>
+        <p>
+          In essence: I'm your full-stack Swiss Army knife, ready to tackle any
+          tech challenge!
+        </p>
 
-        
+        <p class="blink">
+          ⚠️ Warning: May disappear into code caves for days. Will emerge with
+          working product and slight caffeine addiction.
+        </p>
+      </section>
 
-        <section class="container">
-            <h2>CURRENT STATUS</h2>
-            <p>🚀 Not seeking full-time roles, but...</p>
-            <ul>
-                <li>Open for rapid prototyping adventures</li>
-                <li>Ready to ship MVPs faster than you can say "chai break"</li>
-                <li>Will consider cool projects that make me go "Waah!" 😮</li>
-            </ul>
-            <p>Translation: If your project is so exciting it could power a small city, I might just say yes. No promises, though  my time is as limited as the last samosa at a party.</p>
-            
-            <h3>Tech Flexibility</h3>
-            <ul>
-                <li>Backend or Frontend: I'm a tech chameleon, adapting to any stack</li>
-                
-            </ul>
-            <p>In essence: I'm your full-stack Swiss Army knife, ready to tackle any tech challenge!</p>
-            
-            <p class="blink">⚠️ Warning: May disappear into code caves for days. Will emerge with working product and slight caffeine addiction.</p>
-        </section>
-
-        <!-- New Contact Me button -->
-        <section class="container">
-            <h2>WANT TO CHAT?</h2>
-            <p>Fur-tunately, I'm just a meow-ssage away!</p>
-            <button id="contact-button">Contact Me</button>
-        </section>
+      <!-- New Contact Me button -->
+      <section class="container">
+        <h2>WANT TO CHAT?</h2>
+        <p>Fur-tunately, I'm just a meow-ssage away!</p>
+        <button id="contact-button">Contact Me</button>
+      </section>
     </main>
 
     <footer class="container">
-        <p>© 2024 Koushith | Powered by Caffeine, Creativity, and Cat Videos</p>
-        <p>
-            <a href="https://github.com/koushith" target="_blank">GitHub</a> |
-            <a href="https://x.com/koushithamin" target="_blank">Twitter</a> | 
-            <a href="https://www.linkedin.com/in/koushith-amin-663787146/" target="_blank">LinkedIn</a> |
-        </p>
-       
+      <p>© 2024 Koushith | Powered by Caffeine, Creativity, and Cat Videos</p>
+      <p>
+        <a href="https://github.com/koushith" target="_blank">GitHub</a> |
+        <a href="https://x.com/koushithamin" target="_blank">Twitter</a> |
+        <a
+          href="https://www.linkedin.com/in/koushith-amin-663787146/"
+          target="_blank"
+          >LinkedIn</a
+        >
+        |
+      </p>
     </footer>
     <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" style="margin-bottom: 10px;">&times;</span>
-            <p>Congratulations! You've unlocked the secret cat dimension. Prepare for an overload of cuteness and coding prowess!</p>
-            <div class="cat-carousel">
-                <button id="prevCat" class="retro-button">&#9664;</button>
-                <img id="catImage" src="./cat1.gif" alt="Dancing cat">
-                <button id="nextCat" class="retro-button">&#9654;</button>
-            </div>
-            <audio id="modalMusic" loop>
-                <source src="./conga.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
+      <div class="modal-content">
+        <span class="close" style="margin-bottom: 10px">&times;</span>
+        <p>
+          Congratulations! You've unlocked the secret cat dimension. Prepare for
+          an overload of cuteness and coding prowess!
+        </p>
+        <div class="cat-carousel">
+          <button id="prevCat" class="retro-button">&#9664;</button>
+          <img id="catImage" src="./cat1.gif" alt="Dancing cat" />
+          <button id="nextCat" class="retro-button">&#9654;</button>
         </div>
+        <audio id="modalMusic" loop>
+          <source src="./conga.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
     </div>
 
     <!-- New Contact Modal -->
     <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Let's Chat, Hooman!</h2>
-            <p>Paw-don me, but I'd love to hear from you! Fill out this form, and I'll get back to you faster than a cat can say 'meow'!</p>
-            <form id="contactForm" action="https://formspree.io/f/xanywkqg" method="POST">
-                <div>
-                    <label for="name">Name (required for belly rubs):</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div>
-                    <label for="email">Email (for sending cat pics):</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div>
-                    <label for="message">Your Meow-ssage:</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                
-                <button type="submit">Send Purr-fect Message</button>
-            </form>
-            <div id="formStatus" style="display: none;"></div>
-        </div>
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Let's Chat, Hooman!</h2>
+        <p>
+          Paw-don me, but I'd love to hear from you! Fill out this form, and
+          I'll get back to you faster than a cat can say 'meow'!
+        </p>
+        <form
+          id="contactForm"
+          action="https://formspree.io/f/xanywkqg"
+          method="POST"
+        >
+          <div>
+            <label for="name">Name (required for belly rubs):</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div>
+            <label for="email">Email (for sending cat pics):</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div>
+            <label for="message">Your Meow-ssage:</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit">Send Purr-fect Message</button>
+        </form>
+        <div id="formStatus" style="display: none"></div>
+      </div>
     </div>
 
     <script>
-        const catImages = ['./cat1.gif', './cat2.gif', './cat3.gif', './cat4.gif', './cat5.gif', './cat6.gif', './cat7.gif', './cat8.gif', './cat9.gif'];
-        let currentCatIndex = 0;
-        const catImage = document.getElementById('catImage');
-        const prevCat = document.getElementById('prevCat');
-        const nextCat = document.getElementById('nextCat');
+      const catImages = [
+        "./cat1.gif",
+        "./cat2.gif",
+        "./cat3.gif",
+        "./cat4.gif",
+        "./cat5.gif",
+        "./cat6.gif",
+        "./cat7.gif",
+        "./cat8.gif",
+        "./cat9.gif",
+      ];
+      let currentCatIndex = 0;
+      const catImage = document.getElementById("catImage");
+      const prevCat = document.getElementById("prevCat");
+      const nextCat = document.getElementById("nextCat");
 
-        prevCat.addEventListener('click', () => {
-            currentCatIndex = (currentCatIndex - 1 + catImages.length) % catImages.length;
-            catImage.src = catImages[currentCatIndex];
-        });
+      prevCat.addEventListener("click", () => {
+        currentCatIndex =
+          (currentCatIndex - 1 + catImages.length) % catImages.length;
+        catImage.src = catImages[currentCatIndex];
+      });
 
-        nextCat.addEventListener('click', () => {
-            currentCatIndex = (currentCatIndex + 1) % catImages.length;
-            catImage.src = catImages[currentCatIndex];
-        });
+      nextCat.addEventListener("click", () => {
+        currentCatIndex = (currentCatIndex + 1) % catImages.length;
+        catImage.src = catImages[currentCatIndex];
+      });
 
-        // Console Easter Eggs
-        console.log("%cMeow there, curious developer! 🐱", "font-size: 20px; color: #4ecca3; font-weight: bold;");
-        console.log("%cYou've stumbled upon the secret cat dimension in the console!", "font-size: 16px; color: #ff6b6b;");
-        console.log("%cHere are some cat-coding tips:", "font-size: 14px; color: #e0e0e0;");
-        console.log("1. Always land on your feet... I mean, always have a fallback function.");
-        console.log("2. Curiosity didn't kill the cat, it just caused a stack overflow.");
-        console.log("3. The best code reviewers have whiskers.");
-        console.log("4. If you can't compile it, just knock it off the table and walk away.");
-        console.log("%cPurr-ogramming: It's like normal programming, but with more naps.", "font-style: italic; color: #4ecca3;");
+      // Console Easter Eggs
+      console.log(
+        "%cMeow there, curious developer! 🐱",
+        "font-size: 20px; color: #4ecca3; font-weight: bold;"
+      );
+      console.log(
+        "%cYou've stumbled upon the secret cat dimension in the console!",
+        "font-size: 16px; color: #ff6b6b;"
+      );
+      console.log(
+        "%cHere are some cat-coding tips:",
+        "font-size: 14px; color: #e0e0e0;"
+      );
+      console.log(
+        "1. Always land on your feet... I mean, always have a fallback function."
+      );
+      console.log(
+        "2. Curiosity didn't kill the cat, it just caused a stack overflow."
+      );
+      console.log("3. The best code reviewers have whiskers.");
+      console.log(
+        "4. If you can't compile it, just knock it off the table and walk away."
+      );
+      console.log(
+        "%cPurr-ogramming: It's like normal programming, but with more naps.",
+        "font-style: italic; color: #4ecca3;"
+      );
 
-        // Interactive Console Menu
-        console.log("%c🐾 Welcome to the Interactive Cat Console! 🐾", "font-size: 18px; color: #4ecca3; font-weight: bold;");
-        console.log("%cType these commands in the console:", "font-size: 14px; color: #e0e0e0;");
-        console.log("catFact() - Get a random cat fact");
-        console.log("catPun() - Learn a new programming pun");
-        console.log("catArt() - See ASCII cat art");
-        console.log("hireMe() - Get Koushith's contact info");
-        console.log("catMode() - Transform the page into cat paradise");
+      // Interactive Console Menu
+      console.log(
+        "%c🐾 Welcome to the Interactive Cat Console! 🐾",
+        "font-size: 18px; color: #4ecca3; font-weight: bold;"
+      );
+      console.log(
+        "%cType these commands in the console:",
+        "font-size: 14px; color: #e0e0e0;"
+      );
+      console.log("catFact() - Get a random cat fact");
+      console.log("catPun() - Learn a new programming pun");
+      console.log("catArt() - See ASCII cat art");
+      console.log("hireMe() - Get Koushith's contact info");
+      console.log("catMode() - Transform the page into cat paradise");
 
-        // random cat fact
-        function catFact() {
-            const catFacts = [
-                "Cats spend 70% of their lives sleeping.",
-                "A group of cats is called a 'clowder'.",
-                "Cats can rotate their ears 180 degrees.",
-                "A cat's nose print is unique, like a human's fingerprint.",
-                "Cats can't taste sweetness."
-            ];
-            console.log("%c🐱 Random Cat Fact:", "color: #ff6b6b; font-weight: bold;");
-            console.log(catFacts[Math.floor(Math.random() * catFacts.length)]);
-        }
+      // random cat fact
+      function catFact() {
+        const catFacts = [
+          "Cats spend 70% of their lives sleeping.",
+          "A group of cats is called a 'clowder'.",
+          "Cats can rotate their ears 180 degrees.",
+          "A cat's nose print is unique, like a human's fingerprint.",
+          "Cats can't taste sweetness.",
+        ];
+        console.log(
+          "%c🐱 Random Cat Fact:",
+          "color: #ff6b6b; font-weight: bold;"
+        );
+        console.log(catFacts[Math.floor(Math.random() * catFacts.length)]);
+      }
 
-        //  programming pun
-        function catPun() {
-            const puns = [
-                "Why do programmers prefer dark mode? Because light attracts bugs!",
-                "Why did the programmer quit his job? Because he didn't get arrays.",
-                "How do you comfort a JavaScript bug? You console it!",
-                "Why do cats make terrible programmers? They refuse to use a mouse!",
-                "What do you call a cat that codes? A purr-grammer!"
-            ];
-            console.log("%c😹 Programming Pun:", "color: #ff6b6b; font-weight: bold;");
-            console.log(puns[Math.floor(Math.random() * puns.length)]);
-        }
+      //  programming pun
+      function catPun() {
+        const puns = [
+          "Why do programmers prefer dark mode? Because light attracts bugs!",
+          "Why did the programmer quit his job? Because he didn't get arrays.",
+          "How do you comfort a JavaScript bug? You console it!",
+          "Why do cats make terrible programmers? They refuse to use a mouse!",
+          "What do you call a cat that codes? A purr-grammer!",
+        ];
+        console.log(
+          "%c😹 Programming Pun:",
+          "color: #ff6b6b; font-weight: bold;"
+        );
+        console.log(puns[Math.floor(Math.random() * puns.length)]);
+      }
 
-        // display ASCII cat
-        function catArt() {
-            console.log("%c😺 ASCII Cat:", "color: #ff6b6b; font-weight: bold;");
-            console.log(`
+      // display ASCII cat
+      function catArt() {
+        console.log("%c😺 ASCII Cat:", "color: #ff6b6b; font-weight: bold;");
+        console.log(`
      /\\_/\\
     ( o.o )
      > ^ <
             `);
+      }
+
+      // display contact info
+      function hireMe() {
+        console.log(
+          "%c📧 Want to work together? Meow at me!",
+          "color: #ff6b6b; font-weight: bold;"
+        );
+        console.log("%cEmail: koushith97@gmail.com", "color: #4ecca3;");
+        console.log(
+          "%cPS: I accept payment in cat treats and yarn balls.",
+          "font-style: italic; color: #e0e0e0;"
+        );
+      }
+
+      // transform the page
+      function catMode() {
+        document.body.style.fontFamily = "'Comic Sans MS', cursive";
+        document.body.style.backgroundImage =
+          "url('https://i.giphy.com/media/BzyTuYCmvSORqs1ABM/giphy.webp')";
+        document.body.style.color = "#ff00ff";
+        alert("🐱 Meow! You've activated Cat Mode! 🐱");
+      }
+
+      // Make functions available globally
+      window.catFact = catFact;
+      window.catPun = catPun;
+      window.catArt = catArt;
+      window.hireMe = hireMe;
+      window.catMode = catMode;
+
+      // Easter Egg: Konami Code
+      let konamiCode = [
+        "ArrowUp",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowLeft",
+        "ArrowRight",
+        "b",
+        "a",
+      ];
+      let konamiIndex = 0;
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === konamiCode[konamiIndex]) {
+          konamiIndex++;
+          if (konamiIndex === konamiCode.length) {
+            console.log(
+              "%c🎉 Meow-velous! You've unlocked the Konami Cat-de!",
+              "font-size: 24px; color: #ff6b6b; font-weight: bold;"
+            );
+            console.log(
+              "%c Here's a cat ASCII art for you:",
+              "font-size: 16px; color: #4ecca3;"
+            );
+            catArt();
+            konamiIndex = 0;
+          }
+        } else {
+          konamiIndex = 0;
         }
+      });
 
-        // display contact info
-        function hireMe() {
-            console.log("%c📧 Want to work together? Meow at me!", "color: #ff6b6b; font-weight: bold;");
-            console.log("%cEmail: koushith97@gmail.com", "color: #4ecca3;");
-            console.log("%cPS: I accept payment in cat treats and yarn balls.", "font-style: italic; color: #e0e0e0;");
+      // Secret Message
+      let secretMessage = "";
+      document.addEventListener("keypress", (e) => {
+        secretMessage += e.key;
+        if (secretMessage.includes("ilovecats")) {
+          console.log(
+            "%c🐱 You've discovered the secret message! Here's a cat fact:",
+            "color: #ff6b6b; font-weight: bold;"
+          );
+          catFact();
+          secretMessage = "";
         }
+      });
 
-        // transform the page
-        function catMode() {
-            document.body.style.fontFamily = "'Comic Sans MS', cursive";
-            document.body.style.backgroundImage = "url('https://i.giphy.com/media/BzyTuYCmvSORqs1ABM/giphy.webp')";
-            document.body.style.color = "#ff00ff";
-            alert("🐱 Meow! You've activated Cat Mode! 🐱");
+      // Secret Button
+      const button = document.getElementById("secret-button");
+      const modal = document.getElementById("myModal");
+      const closeBtn = document.getElementsByClassName("close")[0];
+      const modalMusic = document.getElementById("modalMusic");
+
+      button.addEventListener("click", function () {
+        modal.style.display = "block";
+        modalMusic.play();
+      });
+
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+        modalMusic.pause();
+        modalMusic.currentTime = 0;
+      };
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+          modalMusic.pause();
+          modalMusic.currentTime = 0;
         }
+      };
 
-        // Make functions available globally
-        window.catFact = catFact;
-        window.catPun = catPun;
-        window.catArt = catArt;
-        window.hireMe = hireMe;
-        window.catMode = catMode;
+      // Contact form modal
+      const contactButton = document.getElementById("contact-button");
+      const contactModal = document.getElementById("contactModal");
+      const contactCloseBtn = contactModal.getElementsByClassName("close")[0];
+      const contactForm = document.getElementById("contactForm");
+      const formStatus = document.getElementById("formStatus");
 
-        // Easter Egg: Konami Code
-        let konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-        let konamiIndex = 0;
+      contactButton.onclick = function () {
+        contactModal.style.display = "block";
+        contactForm.style.display = "block";
+        formStatus.style.display = "none";
+      };
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === konamiCode[konamiIndex]) {
-                konamiIndex++;
-                if (konamiIndex === konamiCode.length) {
-                    console.log("%c🎉 Meow-velous! You've unlocked the Konami Cat-de!", "font-size: 24px; color: #ff6b6b; font-weight: bold;");
-                    console.log("%c Here's a cat ASCII art for you:", "font-size: 16px; color: #4ecca3;");
-                    catArt();
-                    konamiIndex = 0;
-                }
+      contactCloseBtn.onclick = function () {
+        contactModal.style.display = "none";
+      };
+
+      window.onclick = function (event) {
+        if (event.target == contactModal) {
+          contactModal.style.display = "none";
+        }
+      };
+
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(contactForm);
+        fetch(contactForm.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              formStatus.innerHTML =
+                "Thanks for your message! I'll get back to you faster than a cat can say 'meow'!";
+              formStatus.style.color = "#4ecca3";
+              contactForm.style.display = "none";
+              formStatus.style.display = "block";
             } else {
-                konamiIndex = 0;
+              formStatus.innerHTML =
+                "Oops! Something went wrong. Please try again or contact me directly.";
+              formStatus.style.color = "#ff6b6b";
+              formStatus.style.display = "block";
             }
-        });
-
-        // Secret Message
-        let secretMessage = "";
-        document.addEventListener('keypress', (e) => {
-            secretMessage += e.key;
-            if (secretMessage.includes("ilovecats")) {
-                console.log("%c🐱 You've discovered the secret message! Here's a cat fact:", "color: #ff6b6b; font-weight: bold;");
-                catFact();
-                secretMessage = "";
-            }
-        });
-
-        // Secret Button
-        const button = document.getElementById('secret-button');
-        const modal = document.getElementById('myModal');
-        const closeBtn = document.getElementsByClassName('close')[0];
-        const modalMusic = document.getElementById('modalMusic');
-
-        button.addEventListener('click', function() {
-            modal.style.display = "block";
-            modalMusic.play();
-        });
-
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-            modalMusic.pause();
-            modalMusic.currentTime = 0;
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-                modalMusic.pause();
-                modalMusic.currentTime = 0;
-            }
-        }
-
-        // Contact form modal
-        const contactButton = document.getElementById('contact-button');
-        const contactModal = document.getElementById('contactModal');
-        const contactCloseBtn = contactModal.getElementsByClassName('close')[0];
-        const contactForm = document.getElementById('contactForm');
-        const formStatus = document.getElementById('formStatus');
-
-        contactButton.onclick = function() {
-            contactModal.style.display = "block";
-            contactForm.style.display = "block";
-            formStatus.style.display = "none";
-        }
-
-        contactCloseBtn.onclick = function() {
-            contactModal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == contactModal) {
-                contactModal.style.display = "none";
-            }
-        }
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(contactForm);
-            fetch(contactForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    formStatus.innerHTML = "Thanks for your message! I'll get back to you faster than a cat can say 'meow'!";
-                    formStatus.style.color = "#4ecca3";
-                    contactForm.style.display = "none";
-                    formStatus.style.display = "block";
-                } else {
-                    formStatus.innerHTML = "Oops! Something went wrong. Please try again or contact me directly.";
-                    formStatus.style.color = "#ff6b6b";
-                    formStatus.style.display = "block";
-                }
-            }).catch(error => {
-                formStatus.innerHTML = "Oops! Something went wrong. Please try again or contact me directly.";
-                formStatus.style.color = "#ff6b6b";
-                formStatus.style.display = "block";
-            });
-        });
+          })
+          .catch((error) => {
+            formStatus.innerHTML =
+              "Oops! Something went wrong. Please try again or contact me directly.";
+            formStatus.style.color = "#ff6b6b";
+            formStatus.style.display = "block";
+          });
+      });
     </script>
 
     <audio id="backgroundMusic" loop>
-        <source src="./conga.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
+      <source src="./conga.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
     </audio>
-</body>
+  </body>
 </html>
