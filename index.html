@@ -108,6 +108,8 @@
             width: 90%; 
             max-width: 600px;
             position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
         }
         .company-name {
             color: #ff6b6b;  
@@ -160,14 +162,78 @@
                 width: 95%;
                 padding: 15px;
                 margin: 10% auto;
+                max-height: 90vh;
             }
             #catImage {
                 max-width: 100%;
-                max-height: 200px; /* Limit the height on mobile */
-                object-fit: contain; /* Ensure the entire image is visible */
+                max-height: 200px; 
+                object-fit: contain; 
             }
             .cat-carousel {
                 justify-content: center;
+            }
+            .close {
+                top: 10px;
+                right: 15px;
+            }
+        }
+        #contact-button {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            font-size: 18px;
+        }
+        #contactForm {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        #contactForm > div {
+            margin-bottom: 20px;
+        }
+        #contactForm label {
+            color: #4ecca3;
+            margin-bottom: 5px;
+            display: block;
+        }
+        #contactForm input, #contactForm textarea {
+            width: 100%;
+            padding: 10px;
+            background-color: #1a1a2e;
+            border: 2px solid #4ecca3;
+            color: #e0e0e0;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        #contactForm textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        #contactForm button {
+            align-self: flex-start;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4ecca3;
+            color: #1a1a2e;
+            border: none;
+            cursor: pointer;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 14px;
+        }
+        #formStatus {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        @media (max-width: 600px) {
+            .modal-content {
+                width: 95%;
+                padding: 15px;
+                margin: 10% auto;
+            }
+            #contactForm input, #contactForm textarea {
+                font-size: 12px;
             }
         }
     </style>
@@ -208,7 +274,7 @@
             <p>Chief Cat Herder & Code Whisperer</p>
             <ul>
                 <li>Mastering the art of client solutioning (a.k.a. convincing humans that my cat's ideas are actually mine)</li>
-                <li>Crafting internal tools like devtools (because apparently, my cat's scratch post wasn't cutting it)</li>
+                <li>Crafting internal tools and devtool to optimize workflows and boost efficiency (because simplifying other developers' tasks is my secret superpower)</li>
                 <li>Fullstack juggling act - balancing frontend purr-fection with backend whisker-twisting logic</li>
             </ul>
 
@@ -262,6 +328,9 @@
             </div>
         </section>
 
+
+        
+
         <section class="container">
             <h2>CURRENT STATUS</h2>
             <p>🚀 Not seeking full-time roles, but...</p>
@@ -270,7 +339,7 @@
                 <li>Ready to ship MVPs faster than you can say "chai break"</li>
                 <li>Will consider cool projects that make me go "Waah!" 😮</li>
             </ul>
-            <p>Translation: If your project is so exciting it could power a small city, I might just say yes. No promises, though �� my time is as limited as the last samosa at a party.</p>
+            <p>Translation: If your project is so exciting it could power a small city, I might just say yes. No promises, though  my time is as limited as the last samosa at a party.</p>
             
             <h3>Tech Flexibility</h3>
             <ul>
@@ -281,14 +350,21 @@
             
             <p class="blink">⚠️ Warning: May disappear into code caves for days. Will emerge with working product and slight caffeine addiction.</p>
         </section>
+
+        <!-- New Contact Me button -->
+        <section class="container">
+            <h2>WANT TO CHAT?</h2>
+            <p>Fur-tunately, I'm just a meow-ssage away!</p>
+            <button id="contact-button">Contact Me</button>
+        </section>
     </main>
 
     <footer class="container">
         <p>© 2024 Koushith | Powered by Caffeine, Creativity, and Cat Videos</p>
         <p>
-            <a href="https://github.com/koushith">GitHub</a> |
-            <a href="https://x.com/koushithamin">Twitter</a> | 
-            <a href="https://linkedin.com/me/koushith">LinkedIn</a> |
+            <a href="https://github.com/koushith" target="_blank">GitHub</a> |
+            <a href="https://x.com/koushithamin" target="_blank">Twitter</a> | 
+            <a href="https://www.linkedin.com/in/koushith-amin-663787146/" target="_blank">LinkedIn</a> |
         </p>
        
     </footer>
@@ -308,8 +384,36 @@
         </div>
     </div>
 
+    <!-- New Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Let's Chat, Hooman!</h2>
+            <p>Paw-don me, but I'd love to hear from you! Fill out this form, and I'll get back to you faster than a cat can say 'meow'!</p>
+            <form id="contactForm" action="https://formspree.io/f/xanywkqg" method="POST">
+                <div>
+                    <label for="name">Name (required for belly rubs):</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div>
+                    <label for="email">Email (for sending cat pics):</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div>
+                    <label for="message">Your Meow-ssage:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit">Send Purr-fect Message</button>
+            </form>
+            <div id="formStatus" style="display: none;"></div>
+        </div>
+    </div>
+
     <script>
-        const catImages = ['./cat1.gif', './cat2.gif', './cat3.gif', './cat4.gif', './cat5.gif'];
+        const catImages = ['./cat1.gif', './cat2.gif', './cat3.gif', './cat4.gif', './cat5.gif', './cat6.gif', './cat7.gif', './cat8.gif', './cat9.gif'];
         let currentCatIndex = 0;
         const catImage = document.getElementById('catImage');
         const prevCat = document.getElementById('prevCat');
@@ -324,14 +428,114 @@
             currentCatIndex = (currentCatIndex + 1) % catImages.length;
             catImage.src = catImages[currentCatIndex];
         });
-    </script>
 
-    <audio id="backgroundMusic" loop>
-        <source src="./conga.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+        // Console Easter Eggs
+        console.log("%cMeow there, curious developer! 🐱", "font-size: 20px; color: #4ecca3; font-weight: bold;");
+        console.log("%cYou've stumbled upon the secret cat dimension in the console!", "font-size: 16px; color: #ff6b6b;");
+        console.log("%cHere are some cat-coding tips:", "font-size: 14px; color: #e0e0e0;");
+        console.log("1. Always land on your feet... I mean, always have a fallback function.");
+        console.log("2. Curiosity didn't kill the cat, it just caused a stack overflow.");
+        console.log("3. The best code reviewers have whiskers.");
+        console.log("4. If you can't compile it, just knock it off the table and walk away.");
+        console.log("%cPurr-ogramming: It's like normal programming, but with more naps.", "font-style: italic; color: #4ecca3;");
 
-    <script>
+        // Interactive Console Menu
+        console.log("%c🐾 Welcome to the Interactive Cat Console! 🐾", "font-size: 18px; color: #4ecca3; font-weight: bold;");
+        console.log("%cType these commands in the console:", "font-size: 14px; color: #e0e0e0;");
+        console.log("catFact() - Get a random cat fact");
+        console.log("catPun() - Learn a new programming pun");
+        console.log("catArt() - See ASCII cat art");
+        console.log("hireMe() - Get Koushith's contact info");
+        console.log("catMode() - Transform the page into cat paradise");
+
+        // random cat fact
+        function catFact() {
+            const catFacts = [
+                "Cats spend 70% of their lives sleeping.",
+                "A group of cats is called a 'clowder'.",
+                "Cats can rotate their ears 180 degrees.",
+                "A cat's nose print is unique, like a human's fingerprint.",
+                "Cats can't taste sweetness."
+            ];
+            console.log("%c🐱 Random Cat Fact:", "color: #ff6b6b; font-weight: bold;");
+            console.log(catFacts[Math.floor(Math.random() * catFacts.length)]);
+        }
+
+        //  programming pun
+        function catPun() {
+            const puns = [
+                "Why do programmers prefer dark mode? Because light attracts bugs!",
+                "Why did the programmer quit his job? Because he didn't get arrays.",
+                "How do you comfort a JavaScript bug? You console it!",
+                "Why do cats make terrible programmers? They refuse to use a mouse!",
+                "What do you call a cat that codes? A purr-grammer!"
+            ];
+            console.log("%c😹 Programming Pun:", "color: #ff6b6b; font-weight: bold;");
+            console.log(puns[Math.floor(Math.random() * puns.length)]);
+        }
+
+        // display ASCII cat
+        function catArt() {
+            console.log("%c😺 ASCII Cat:", "color: #ff6b6b; font-weight: bold;");
+            console.log(`
+     /\\_/\\
+    ( o.o )
+     > ^ <
+            `);
+        }
+
+        // display contact info
+        function hireMe() {
+            console.log("%c📧 Want to work together? Meow at me!", "color: #ff6b6b; font-weight: bold;");
+            console.log("%cEmail: koushith97@gmail.com", "color: #4ecca3;");
+            console.log("%cPS: I accept payment in cat treats and yarn balls.", "font-style: italic; color: #e0e0e0;");
+        }
+
+        // transform the page
+        function catMode() {
+            document.body.style.fontFamily = "'Comic Sans MS', cursive";
+            document.body.style.backgroundImage = "url('https://i.giphy.com/media/BzyTuYCmvSORqs1ABM/giphy.webp')";
+            document.body.style.color = "#ff00ff";
+            alert("🐱 Meow! You've activated Cat Mode! 🐱");
+        }
+
+        // Make functions available globally
+        window.catFact = catFact;
+        window.catPun = catPun;
+        window.catArt = catArt;
+        window.hireMe = hireMe;
+        window.catMode = catMode;
+
+        // Easter Egg: Konami Code
+        let konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiIndex = 0;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    console.log("%c🎉 Meow-velous! You've unlocked the Konami Cat-de!", "font-size: 24px; color: #ff6b6b; font-weight: bold;");
+                    console.log("%c Here's a cat ASCII art for you:", "font-size: 16px; color: #4ecca3;");
+                    catArt();
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+
+        // Secret Message
+        let secretMessage = "";
+        document.addEventListener('keypress', (e) => {
+            secretMessage += e.key;
+            if (secretMessage.includes("ilovecats")) {
+                console.log("%c🐱 You've discovered the secret message! Here's a cat fact:", "color: #ff6b6b; font-weight: bold;");
+                catFact();
+                secretMessage = "";
+            }
+        });
+
+        // Secret Button
         const button = document.getElementById('secret-button');
         const modal = document.getElementById('myModal');
         const closeBtn = document.getElementsByClassName('close')[0];
@@ -356,7 +560,60 @@
             }
         }
 
-      
+        // Contact form modal
+        const contactButton = document.getElementById('contact-button');
+        const contactModal = document.getElementById('contactModal');
+        const contactCloseBtn = contactModal.getElementsByClassName('close')[0];
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+
+        contactButton.onclick = function() {
+            contactModal.style.display = "block";
+            contactForm.style.display = "block";
+            formStatus.style.display = "none";
+        }
+
+        contactCloseBtn.onclick = function() {
+            contactModal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == contactModal) {
+                contactModal.style.display = "none";
+            }
+        }
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    formStatus.innerHTML = "Thanks for your message! I'll get back to you faster than a cat can say 'meow'!";
+                    formStatus.style.color = "#4ecca3";
+                    contactForm.style.display = "none";
+                    formStatus.style.display = "block";
+                } else {
+                    formStatus.innerHTML = "Oops! Something went wrong. Please try again or contact me directly.";
+                    formStatus.style.color = "#ff6b6b";
+                    formStatus.style.display = "block";
+                }
+            }).catch(error => {
+                formStatus.innerHTML = "Oops! Something went wrong. Please try again or contact me directly.";
+                formStatus.style.color = "#ff6b6b";
+                formStatus.style.display = "block";
+            });
+        });
     </script>
+
+    <audio id="backgroundMusic" loop>
+        <source src="./conga.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 </body>
 </html>
